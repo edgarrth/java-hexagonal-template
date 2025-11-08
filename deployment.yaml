@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-poc-deployment
+spec:
+  selector:
+    matchLabels:
+      app: micro-poc-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: micro-poc-app
+    spec:
+      containers:
+        - name: micro-poc
+          image: micro-poc:3
+          ports:
+            - containerPort: 8080
